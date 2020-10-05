@@ -44,7 +44,7 @@ namespace _20200928HW_p._180_4._9
             WithdrawalAmount = decimal.Parse(Console.ReadLine());
             Console.WriteLine($"removing {WithdrawalAmount:C} to account2 balance\n");
             account2.Withdrawal(WithdrawalAmount);
-
+             
             Console.WriteLine($"{account1.Name}'s balance:{account1.Balance:C}");
             Console.WriteLine($"{account2.Name}'s balance:{account2.Balance:C}");
         }

@@ -25,7 +25,11 @@ namespace _20200928HW_p._180_4._9
             }
             private set
             {
-                if(value > 0.0m)
+                if(value < 0.0m)
+                {
+                    throw new ArgumentException("Please enter an amount greater than 0");
+                }
+                else
                 {
                     balance = value;
                 }
@@ -42,14 +46,13 @@ namespace _20200928HW_p._180_4._9
 
         public int Withdrawal(decimal WithdrawalAmount)
         {
-            if(WithdrawalAmount > 0.0m)
+            if(WithdrawalAmount < Balance)
             {
                 Balance = Balance - WithdrawalAmount;
-                if(Balance < 0.0m)
-                {
-                    Console.WriteLine($"Withdrawing {WithdrawalAmount:C} would leave you overdrawn!");
-                }
-            
+            }
+            else
+            {
+                Console.WriteLine($"Withdrawing {WithdrawalAmount:C} would leave you overdrawn!");
             }
             return (int)Balance;
         }
